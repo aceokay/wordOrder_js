@@ -10,4 +10,8 @@ describe("wordOrder", function() {
   it("will take a two word repeat string and return one word and word count", function() {
     expect(wordOrder("ball ball")).to.eql([["ball", 2]]);
   });
+
+  it("will a complex series of repeated words and return them with corresponding number amounts.", function() {
+    expect(wordOrder("ball ball string ball string string ball")).to.eql([["ball", 4],["string", 3]]);
+  });
 });
