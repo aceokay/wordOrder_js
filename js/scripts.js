@@ -1,21 +1,21 @@
 var wordOrder = function(sentence) {
-  var wordArray = sentence.split(" ");
+  var wordArray = sentence.toLowerCase().split(" ");
   var foundWords = [];
 
-  foundWords.push([wordArray[0], 1]);
+  foundWords.push([1, wordArray[0]]);
 
   for (var word_index = 1; word_index < wordArray.length; word_index++){
     var altered = false;
     foundWords.forEach(function(fWord) {
-      if (wordArray[word_index] === fWord[0]){
-        fWord[1] += 1;
+      if (wordArray[word_index] === fWord[1]){
+        fWord[0] += 1;
         altered = true;
       }
     });
     if (altered === false) {
-      foundWords.push([wordArray[word_index],1]);
+      foundWords.push([1, wordArray[word_index]]);
     }
   };
 
-  return foundWords;
+  return foundWords.sort().reverse();
 };
